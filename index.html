@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GedPrint - Facturation</title>
+    <meta name="theme-color" content="#1b4d3e">
+    <link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,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">
+    <link rel="apple-touch-icon" href="data:image/png;base64,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">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="GedPrint">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        :root {
+            --primary: #1b4d3e;
+            --primary-light: #2e7d5d;
+            --accent-orange: #f26522;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --border-color: #cbd5e1;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 10px;
+        }
+        .app-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        .invoice-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 15px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .header-logo-container {
+            background: white;
+            padding: 4px 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            flex-shrink: 0;
+            max-width: 45%;
+        }
+        .header-logo-container img {
+            height: 34px;
+            width: auto;
+            max-width: 100%;
+            display: block;
+            object-fit: contain;
+        }
+        .header-text {
+            flex: 1;
+            text-align: right;
+        }
+        .header-text h1 {
+            font-size: 1.2rem;
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
+            color: #ffedd5;
+            text-transform: uppercase;
+        }
+        .header-text p {
+            font-size: 0.7rem;
+            opacity: 0.95;
+            line-height: 1.2;
+        }
+        .contact-banner {
+            background: #ffedd5;
+            color: #9a3412;
+            padding: 8px 12px;
+            font-size: 0.8rem;
+            text-align: center;
+            font-weight: 700;
+            border-bottom: 1px solid #fed7aa;
+        }
+        .body-content {
+            padding: 15px;
+        }
+        .client-section {
+            background: #f1f5f9;
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        @media(min-width: 480px) {
+            .client-section {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+        .client-section label {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+        .client-section input {
+            flex: 1;
+            padding: 8px 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        .client-section input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(27, 77, 62, 0.1);
+        }
+        h3.category-title {
+            background: #e2e8f0;
+            color: #334155;
+            padding: 8px 10px;
+            font-size: 0.85rem;
+            margin: 15px 0 8px 0;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            min-width: 320px;
+        }
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 6px 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8fafc;
+            color: #475569;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        td.center, th.center {
+            text-align: center;
+        }
+        td.right, th.right {
+            text-align: right;
+        }
+        input.val-input {
+            width: 55px;
+            padding: 4px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        input.val-input:focus {
+            border-color: var(--primary);
+        }
+        .subtotal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            background: #f8fafc;
+            border: 1px dashed var(--border-color);
+            padding: 10px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 0.75rem;
+        }
+        .subtotal-item {
+            display: flex;
+            justify-content: space-between;
+            background: #ffffff;
+            padding: 6px 8px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+        .subtotal-item span:last-child {
+            font-weight: bold;
+            color: var(--primary);
+        }
+        .total-box {
+            background: #f0fdf4;
+            border: 2px solid #bbf7d0;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .total-box span {
+            font-size: 1rem;
+            color: #166534;
+            font-weight: 700;
+        }
+        .total-box h2 {
+            font-size: 1.4rem;
+            color: #15803d;
+        }
+        .action-panel {
+            padding: 15px;
+            background: #f8fafc;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+        .btn-generate {
+            background-color: #25d366;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+            transition: background 0.2s, transform 0.1s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            max-width: 350px;
+        }
+        .btn-generate:hover {
+            background-color: #1ebe5d;
+            transform: translateY(-1px);
+        }
+
+        .install-banner {
+            position: relative;
+            background: #84dbef;
+            border-bottom: 2px solid #5fc4dc;
+            padding: 12px 40px 12px 14px;
+            text-align: center;
+        }
+        .install-text {
+            font-size: 0.85rem;
+            color: #0a2a5e;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-bottom: 8px;
+        }
+        .install-btn {
+            background: #0b57cf;
+            color: #ffffff;
+            border: none;
+            padding: 10px 18px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 3px 8px rgba(11, 87, 207, 0.35);
+        }
+        .install-ios {
+            font-size: 0.8rem;
+            color: #0a2a5e;
+            margin-top: 8px;
+            line-height: 1.35;
+        }
+        .install-close {
+            position: absolute;
+            top: 6px;
+            right: 8px;
+            background: transparent;
+            border: none;
+            font-size: 1.1rem;
+            color: #0a2a5e;
+            cursor: pointer;
+            padding: 4px 8px;
+        }
+        #receipt-print-area {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            width: 520px;
+            background: #ffffff;
+            padding: 24px;
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            color: #000000;
+        }
+        .rcpt-top {
+            text-align: center;
+            border-bottom: 2px solid #1b4d3e;
+            padding-bottom: 12px;
+            margin-bottom: 14px;
+        }
+        .rcpt-top h2 { color: #1b4d3e; font-size: 26px; margin-bottom: 4px; text-transform: uppercase; }
+        .rcpt-top p { font-size: 14px; color: #222; line-height: 1.4; }
+        .rcpt-meta { font-size: 17px; margin-bottom: 14px; line-height: 1.6; }
+        .rcpt-table { width: 100%; border-collapse: collapse; font-size: 16px; margin-bottom: 14px; }
+        .rcpt-table th { background: #1b4d3e; color: #ffffff; padding: 8px 6px; font-size: 15px; text-align: left; }
+        .rcpt-table td { border-bottom: 1px solid #94a3b8; padding: 8px 6px; }
+        .rcpt-table .center { text-align: center; }
+        .rcpt-table .right { text-align: right; }
+        .rcpt-grand-total { font-size: 24px; font-weight: bold; text-align: right; background: #e8f5ec; padding: 12px; border: 2px solid #1b4d3e; margin-bottom: 14px; color: #0b3d1f; }
+        .rcpt-footer { text-align: center; font-size: 14px; color: #222; border-top: 1px dashed #64748b; padding-top: 12px; }
+        .rcpt-badge { background: #1b4d3e; color: #ffffff; display: inline-block; padding: 6px 14px; font-weight: bold; font-size: 18px; margin-top: 8px; letter-spacing: 1px; }
+    
+        /* Écran d'accueil (prénom, nom, téléphone) */
+        .accueil {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            overflow-y: auto;
+        }
+        .accueil-box {
+            background: #fff;
+            border-radius: 14px;
+            padding: 22px 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+        .accueil-box h2 { margin: 0 0 4px; color: var(--primary); font-size: 1.3rem; }
+        .accueil-sub { margin: 0 0 14px; color: #475569; font-size: 0.9rem; }
+        .accueil-box label { display: block; margin: 10px 0 4px; font-weight: 700; font-size: 0.85rem; color: var(--primary); }
+        .accueil-box input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 11px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .accueil-box input:focus { outline: none; border-color: var(--primary); }
+        .accueil-erreur { color: #b91c1c; font-size: 0.85rem; min-height: 1.1em; margin: 10px 0 0; font-weight: 600; }
+        .accueil-btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: var(--primary);
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .accueil-note { margin: 12px 0 0; font-size: 0.75rem; color: #64748b; text-align: center; }
+        .lien-changer {
+            background: none;
+            border: none;
+            color: var(--primary-light);
+            font-size: 0.8rem;
+            text-decoration: underline;
+            cursor: pointer;
+            padding: 4px 0;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+
+<div id="accueil" class="accueil">
+    <div class="accueil-box">
+        <h2>Bienvenue chez GedPrint</h2>
+        <p class="accueil-sub">Veuillez vous identifier avant de remplir votre facture.</p>
+        <label for="acPrenom">Prénom</label>
+        <input type="text" id="acPrenom" autocomplete="given-name" placeholder="Votre prénom">
+        <label for="acNom">Nom</label>
+        <input type="text" id="acNom" autocomplete="family-name" placeholder="Votre nom">
+        <label for="acTel">Numéro de téléphone (10 chiffres)</label>
+        <input type="tel" id="acTel" inputmode="numeric" maxlength="14" autocomplete="tel" placeholder="Ex : 0812345678">
+        <p id="acErreur" class="accueil-erreur"></p>
+        <button type="button" class="accueil-btn" onclick="validerAccueil()">Continuer</button>
+        <p class="accueil-note">Ces informations servent uniquement à établir votre facture et à suivre vos commandes.</p>
+    </div>
+</div>
+
+
+<div class="app-container">
+    <div id="installBanner" class="install-banner" style="display:none;">
+        <button type="button" class="install-close" aria-label="Fermer" onclick="dismissInstall()">✕</button>
+        <p id="installMessage" class="install-text"></p>
+        <button type="button" id="installBtn" class="install-btn" onclick="installApp()">Ajouter le logo sur mon écran d'accueil</button>
+        <p id="installIosHelp" class="install-ios" style="display:none;"></p>
+    </div>
+    <div class="invoice-header">
+        <div class="header-logo-container">
+            <img src="data:image/jpeg;base64,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" alt="GedPrint" width="465" height="80">
+        </div>
+        <div class="header-text">
+            <h1>Facture GedPrint</h1>
+            <p>Bureautique & Imprimerie • Av/Dilunga N°35 C/Diulu</p>
+            <p>En face de l'entrée UOM (2ème à gauche à la gd maison)</p>
+        </div>
+    </div>
+    <div class="contact-banner">
+        📱 WhatsApp & Orange Money : 0850451073
+    </div>
+
+    <div class="body-content">
+        <div class="client-section">
+            <label for="clientName">Nom du client :</label>
+            <input type="text" id="clientName" placeholder="Entrez le nom complet de l'étudiant...">
+            <button type="button" class="lien-changer" onclick="changerClient()">Ce n'est pas vous ? Changer</button>
+        </div>
+
+        <h3 class="category-title">1. Désignation : Papiers (Bureautique)</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Désignation</th>
+                        <th class="center">P.U (FC)</th>
+                        <th class="center">Nbr pages/ex.</th>
+                        <th class="right">Prix total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Recto A4 Noir blanc</td><td class="center" id="pu_1">150</td><td class="center"><input type="number" min="0" value="0" class="val-input" data-price="150" id="q_1" oninput="calcAll()"></td><td class="right" id="tot_1">0 FC</td></tr>
+                    <tr><td>Recto A4 Couleur</td><td class="center" id="pu_2">450</td><td class="center"><input type="number" min="0" value="0" class="val-input" data-price="450" id="q_2" oninput="calcAll()"></td><td class="right" id="tot_2">0 FC</td></tr>
+                    <tr><td>Reliure TP (transparentiel, baguet, bristol)</td><td class="center" id="pu_3">500</td><td class="center"><input type="number" min="0" value="0" class="val-input" data-price="500" id="q_3" oninput="calcAll()"></td><td class="right" id="tot_3">0 FC</td></tr>
+                    <tr><td>Recto Verso NB</td><td class="center" id="pu_4">250</td><td class="center"><input type="number" min="0" value="0" class="val-input" data-price="250" id="q_4" oninput="calcAll()"></td><td class="right" id="tot_4">0 FC</td></tr>
+                    <tr><td>Recto Verso Couleur</td><td class="center" id="pu_5">650</td><td class="center"><input type="number" min="0" value="0" class="val-input" data-price="650" id="q_5" oninput="calcAll()"></td><td class="right" id="tot_5">0 FC</td></tr>
+                    <tr><td>Format livret ou A5 NB</td><td class="center" id="pu_6">150</td><td class="center"><input type="number" min="0" value="0" class="val-input" data-price="150" id="q_6" oninput="calcAll()"></td><td class="right" id="tot_6">0 FC</td></tr>
+                    <tr><td>Format livret ou A5 Couleur</td><td class="center" id="pu_7">250</td><td class="center"><input type="number" min="0" value="0" class="val-input" data-price="250" id="q_7" oninput="calcAll()"></td><td class="right" id="tot_7">0 FC</td></tr>
+                    <tr><td>F. Bristol A4 noire blanc</td><td class="center" id="pu_8">400</td><td class="center"><input type="number" min="0" value="0" class="val-input" data-price="400" id="q_8" oninput="calcAll()"></td><td class="right" id="tot_8">0 FC</td></tr>
+                    <tr><td>F. Bristol A4 Couleur</td><td class="center" id="pu_9">650</td><td class="center"><input type="number" min="0" value="0" class="val-input" data-price="650" id="q_9" oninput="calcAll()"></td><td class="right" id="tot_9">0 FC</td></tr>
+                    <tr><td>Affiche A3 noire blanc</td><td class="center" id="pu_10">1300</td><td class="center"><input type="number" min="0" value="0" class="val-input" data-price="1300" id="q_10" oninput="calcAll()"></td><td class="right" id="tot_10">0 FC</td></tr>
+                    <tr><td>Affiche A3 Couleur</td><td class="center" id="pu_11">2000</td><td class="center"><input type="number" min="0" value="0" class="val-input" data-price="2000" id="q_11" oninput="calcAll()"></td><td class="right" id="tot_11">0 FC</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="subtotal-grid">
+            <div class="subtotal-item"><span>Recto total :</span><span id="sub_recto">0 FC</span></div>
+            <div class="subtotal-item"><span>Recto Verso total :</span><span id="sub_recto_verso">0 FC</span></div>
+            <div class="subtotal-item"><span>Livret total :</span><span id="sub_livret">0 FC</span></div>
+            <div class="subtotal-item"><span>Bristol total :</span><span id="sub_bristol">0 FC</span></div>
+            <div class="subtotal-item" style="grid-column: span 2;"><span>Affiche A3 total :</span><span id="sub_affiche">0 FC</span></div>
+        </div>
+
+        <div class="total-box">
+            <span>TOTAL GÉNÉRAL :</span>
+            <h2 id="grandTotalText">0 FC</h2>
+        </div>
+    </div>
+
+    <div class="action-panel">
+        <button class="btn-generate" onclick="sendWhatsApp()">
+            💬 Envoyer ma facture sur WhatsApp à GedPrint
+        </button>
+        <p style="font-size: 0.75rem; color: #64748b; margin-top: 6px;">
+            🔒 Le reçu est transformé en image sécurisée avec code unique.
+        </p>
+    </div>
+</div>
+
+<div id="receipt-print-area">
+    <div class="rcpt-top">
+        <h2>Facture GedPrint</h2>
+        <p>Mbuji-Mayi - Av/Dilunga N°35 C/Diulu</p>
+        <p>Tél/WhatsApp : +243850451073</p>
+    </div>
+    <div class="rcpt-meta">
+        <b>Client :</b> <span id="rcptClientName">-</span><br>
+        <b>Date :</b> <span id="rcptDate">-</span>
+    </div>
+    <table class="rcpt-table">
+        <thead>
+            <tr><th>Désignation</th><th class="center">Qté</th><th class="right">P.U</th><th class="right">Total</th></tr>
+        </thead>
+        <tbody id="rcptItemsContainer"></tbody>
+    </table>
+    <div class="rcpt-grand-total" id="rcptGrandTotal">TOTAL : 0 FC</div>
+    <div class="rcpt-footer">
+        <p>Statut : Facture officielle validée</p>
+        <div class="rcpt-badge" id="rcptSecureBadge">CODE: GP-XXXXX</div>
+    </div>
+</div>
+
+<script>
+    const WHATSAPP_NUMBER = "243850451073";
+
+    const itemNames = {
+        1: "Recto A4 NB", 2: "Recto A4 Couleur", 3: "Reliure TP", 4: "Recto Verso NB", 5: "Recto Verso Couleur",
+        6: "Format livret/A5 NB", 7: "Format livret/A5 Coul.", 8: "Bristol A4 NB", 9: "Bristol A4 Couleur",
+        10: "Affiche A3 NB", 11: "Affiche A3 Couleur"
+    };
+
+    function calcAll() {
+        let totals = {};
+        let totalGeneral = 0;
+
+        for (let i = 1; i <= 11; i++) {
+            let input = document.getElementById('q_' + i);
+            let qte = parseInt(input.value) || 0;
+            let pu = parseInt(input.getAttribute('data-price')) || 0;
+            let subTotal = qte * pu;
+            totals[i] = subTotal;
+            totalGeneral += subTotal;
+            document.getElementById('tot_' + i).innerText = subTotal.toLocaleString() + " FC";
+        }
+
+        let rectoTotal = totals[1] + totals[2];
+        let rectoVersoTotal = totals[4] + totals[5];
+        let livretTotal = totals[6] + totals[7];
+        let bristolTotal = totals[3] + totals[8] + totals[9];
+        let afficheTotal = totals[10] + totals[11];
+
+        document.getElementById('sub_recto').innerText = rectoTotal.toLocaleString() + " FC";
+        document.getElementById('sub_recto_verso').innerText = rectoVersoTotal.toLocaleString() + " FC";
+        document.getElementById('sub_livret').innerText = livretTotal.toLocaleString() + " FC";
+        document.getElementById('sub_bristol').innerText = bristolTotal.toLocaleString() + " FC";
+        document.getElementById('sub_affiche').innerText = afficheTotal.toLocaleString() + " FC";
+
+        document.getElementById('grandTotalText').innerText = totalGeneral.toLocaleString() + " FC";
+        return totalGeneral;
+    }
+
+    // Message ajouté entre le total général et le lien de l'image (gras WhatsApp avec *...*)
+    const NOTE_MESSAGE =
+        "📍 *NB :* Pour imprimer, veuillez nous envoyer ici *le document PDF* + *référence de paiement Orange Money* _(Copier et coller du SMS ou capture)_ . *Orange Money : 0850451073*\n" +
+        "Nous vous enverrons votre *Code de retrait.*";
+
+    // Écran d'accueil : prénom, nom, téléphone (10 chiffres obligatoires)
+    let clientTel = '';
+
+    function appliquerClient(prenom, nom, tel) {
+        clientTel = tel;
+        document.getElementById('clientName').value = prenom + ' ' + nom;
+        document.getElementById('accueil').style.display = 'none';
+    }
+
+    // Si le client s'est déjà identifié sur ce téléphone, on ne lui redemande rien
+    function chargerAccueil() {
+        try {
+            const sauve = JSON.parse(localStorage.getItem('gp_client') || 'null');
+            if (sauve) {
+                document.getElementById('acPrenom').value = sauve.prenom || '';
+                document.getElementById('acNom').value = sauve.nom || '';
+                document.getElementById('acTel').value = sauve.tel || '';
+                if (sauve.prenom && sauve.nom && /^\d{10}$/.test(sauve.tel || '')) {
+                    appliquerClient(sauve.prenom, sauve.nom, sauve.tel);
+                }
+            }
+        } catch (e) { /* stockage indisponible : l'écran d'accueil reste affiché */ }
+    }
+
+    // « Ce n'est pas vous ? » : rouvre l'écran avec les informations à corriger
+    function changerClient() {
+        document.getElementById('acErreur').textContent = '';
+        document.getElementById('accueil').style.display = 'flex';
+        document.getElementById('acPrenom').focus();
+    }
+
+    function validerAccueil() {
+        const prenom = document.getElementById('acPrenom').value.trim();
+        const nom = document.getElementById('acNom').value.trim();
+        const tel = document.getElementById('acTel').value.replace(/[\s.\-]/g, '');
+        let erreur = '';
+        if (!prenom) erreur = 'Veuillez saisir votre prénom.';
+        else if (!nom) erreur = 'Veuillez saisir votre nom.';
+        else if (!/^\d{10}$/.test(tel)) erreur = 'Le numéro de téléphone doit avoir exactement 10 chiffres.';
+        document.getElementById('acErreur').textContent = erreur;
+        if (erreur) return;
+
+        try { localStorage.setItem('gp_client', JSON.stringify({ prenom: prenom, nom: nom, tel: tel })); } catch (e) {}
+        appliquerClient(prenom, nom, tel);
+        window.scrollTo(0, 0);
+    }
+
+    chargerAccueil();
+    document.getElementById('acTel').addEventListener('keydown', function (ev) {
+        if (ev.key === 'Enter') validerAccueil();
+    });
+
+    // Enregistrement des commandes dans Google Sheets (en arrière-plan, invisible pour le client)
+    const SHEETS_URL = "https://script.google.com/macros/s/AKfycbx4f8MeGcgJ4oUheq1v4fSXgq-h35VWVrgYYTdg46UhyNe9w-kTXn8HK40wbnmTLF1W/exec";
+    const SHEETS_CLE = "b39090a3bdf3"; // clé secrète : onglet Réglages, cellule B3
+
+    function envoyerVersSheets(data) {
+        try {
+            if (!SHEETS_URL || SHEETS_CLE === "COLLE_ICI_LA_CLE") return;
+            data.cle = SHEETS_CLE;
+            fetch(SHEETS_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                keepalive: true,
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify(data)
+            }).catch(function () {});
+        } catch (e) { /* jamais d'erreur visible pour le client */ }
+    }
+
+    const CLOUDINARY_CLOUD_NAME = "p4diqtuc";
+    const CLOUDINARY_UPLOAD_PRESET = "facture";
+
+    async function uploadToCloudinary(blob, code) {
+        const form = new FormData();
+        form.append('file', blob, `Facture_${code}.jpg`);
+        form.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+        form.append('public_id', `facture_${code}_${Date.now().toString(36)}`);
+
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 30000);
+        try {
+            const resp = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`, {
+                method: 'POST',
+                body: form,
+                signal: controller.signal
+            });
+            const data = await resp.json().catch(() => ({}));
+            if (!resp.ok || !data.secure_url) {
+                throw new Error((data.error && data.error.message) || "Échec de l'envoi de l'image");
+            }
+            return data.secure_url;
+        } catch (e) {
+            if (e.name === 'AbortError') throw new Error("Délai dépassé");
+            throw e;
+        } finally {
+            clearTimeout(timer);
+        }
+    }
+
+    async function sendWhatsApp() {
+        let name = document.getElementById('clientName').value.trim();
+        if (!name) {
+            alert("Veuillez saisir le nom du client !");
+            document.getElementById('clientName').focus();
+            return;
+        }
+
+        if (!/^\d{10}$/.test(clientTel)) {
+            document.getElementById('accueil').style.display = 'flex';
+            return;
+        }
+
+        let grandTotal = calcAll();
+        if (grandTotal <= 0) {
+            alert("Veuillez entrer au moins une quantité !");
+            return;
+        }
+
+        let now = new Date();
+        let dateStr = now.toLocaleDateString() + ' ' + now.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+
+        let rawHash = Math.abs(hashCode(name + grandTotal + dateStr)).toString(36).toUpperCase().substring(0, 5);
+        let secureCode = "GP-" + rawHash;
+
+        let lines = "";
+        let rowsHtml = "";
+        for (let i = 1; i <= 11; i++) {
+            let qte = parseInt(document.getElementById('q_' + i).value) || 0;
+            if (qte > 0) {
+                let pu = parseInt(document.getElementById('q_' + i).getAttribute('data-price'));
+                let subTotal = qte * pu;
+                lines += `- ${itemNames[i]} : ${qte} x ${pu.toLocaleString()} FC = ${subTotal.toLocaleString()} FC\n`;
+                rowsHtml += `<tr><td>${itemNames[i]}</td><td class="center">${qte}</td><td class="right">${pu.toLocaleString()}</td><td class="right">${subTotal.toLocaleString()} FC</td></tr>`;
+            }
+        }
+
+        // Remplir le reçu qui sera transformé en image
+        document.getElementById('rcptClientName').innerText = name;
+        document.getElementById('rcptDate').innerText = dateStr;
+        document.getElementById('rcptItemsContainer').innerHTML = rowsHtml;
+        document.getElementById('rcptGrandTotal').innerText = "TOTAL : " + grandTotal.toLocaleString() + " FC";
+        document.getElementById('rcptSecureBadge').innerText = "CODE SÉCURITÉ : " + secureCode;
+
+        let btn = document.querySelector('.btn-generate');
+        let oldText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = "⏳ Préparation de la facture...";
+
+        try {
+            if (typeof html2canvas === 'undefined') {
+                throw new Error("Module image non chargé");
+            }
+
+            let canvas = await html2canvas(document.getElementById('receipt-print-area'), {
+                scale: 2,
+                backgroundColor: '#ffffff',
+                useCORS: true,
+                onclone: function (doc) {
+                    doc.getElementById('receipt-print-area').style.left = '0px';
+                }
+            });
+
+            let blob = await new Promise((resolve, reject) => {
+                canvas.toBlob(b => b ? resolve(b) : reject(new Error("Image non générée")), 'image/jpeg', 0.85);
+            });
+
+            btn.innerHTML = "☁️ Envoi de l'image...";
+            let imageUrl = await uploadToCloudinary(blob, secureCode);
+
+            // Données pour les rapports (pages couleur, pages noir-blanc, reliures)
+            let qte = function (i) { return parseInt(document.getElementById('q_' + i).value) || 0; };
+            let donneesSheets = {
+                telephone: clientTel,
+                nom: name,
+                couleur: qte(2) + qte(5) + qte(7) + qte(9) + qte(11),
+                nb: qte(1) + qte(4) + qte(6) + qte(8) + qte(10),
+                reliures: qte(3),
+                total: grandTotal,
+                lien: imageUrl
+            };
+            // Quantités par désignation (q1 à q11), pour les colonnes détaillées du Google Sheet
+            for (let i = 1; i <= 11; i++) donneesSheets['q' + i] = qte(i);
+            envoyerVersSheets(donneesSheets);
+
+            let message =
+                `Bonjour GedPrint, voici ma commande (${name}). Code : ${secureCode} - Total : ${grandTotal.toLocaleString()} FC.\n\n` +
+                `Détails :\n` +
+                lines +
+                `\nTOTAL GÉNÉRAL : ${grandTotal.toLocaleString()} FC\n\n` +
+                NOTE_MESSAGE + `\n\n` +
+                `Facture (image) :\n${imageUrl}`;
+
+            let url = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(message)}`;
+            let w = window.open(url, '_blank', 'noopener');
+            if (!w) {
+                window.location.href = url;
+            }
+        } catch (err) {
+            alert("Impossible d'envoyer la facture : " + err.message + "\nVérifiez votre connexion internet et réessayez.");
+        } finally {
+            btn.innerHTML = oldText;
+            btn.disabled = false;
+        }
+    }
+
+    // Champs de quantité : le 0 disparaît au clic, et revient si le champ reste vide
+    document.querySelectorAll('input.val-input').forEach(function (input) {
+        input.addEventListener('focus', function () {
+            if (input.value === '0') {
+                input.value = '';
+            }
+        });
+        input.addEventListener('blur', function () {
+            let n = parseInt(input.value);
+            input.value = (isNaN(n) || n < 0) ? '0' : String(n);
+            calcAll();
+        });
+    });
+
+    // Bannière d'installation en haut de la facture (un seul clic sur Android)
+    const INSTALL_MESSAGE = "Ajoutez Gedprint à votre écran d'accueil pour commander plus vite la prochaine fois !";
+    const INSTALL_IOS_HELP = "Sur iPhone : appuyez sur le bouton Partager (le carré avec une flèche), puis sur « Sur l'écran d'accueil ».";
+    const INSTALL_DISMISS_DAYS = 7;
+
+    let deferredInstallPrompt = null;
+    const installBanner = document.getElementById('installBanner');
+    const installBtn = document.getElementById('installBtn');
+    const installIosHelp = document.getElementById('installIosHelp');
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    function installDismissedRecently() {
+        try {
+            let t = parseInt(localStorage.getItem('gedprint_install_dismissed'));
+            return !!t && (Date.now() - t) < INSTALL_DISMISS_DAYS * 86400000;
+        } catch (e) {
+            return false;
+        }
+    }
+
+    function showInstallBanner() {
+        if (isStandalone || installDismissedRecently()) return;
+        document.getElementById('installMessage').textContent = INSTALL_MESSAGE;
+        installBanner.style.display = 'block';
+    }
+
+    function hideInstallBanner() {
+        installBanner.style.display = 'none';
+    }
+
+    function dismissInstall() {
+        hideInstallBanner();
+        try { localStorage.setItem('gedprint_install_dismissed', String(Date.now())); } catch (e) {}
+    }
+
+    // Android / Chrome : le navigateur prévient que l'application est installable
+    window.addEventListener('beforeinstallprompt', function (e) {
+        e.preventDefault();
+        deferredInstallPrompt = e;
+        showInstallBanner();
+    });
+
+    // Dès que l'application est installée, la bannière disparaît
+    window.addEventListener('appinstalled', function () {
+        deferredInstallPrompt = null;
+        hideInstallBanner();
+    });
+
+    async function installApp() {
+        if (deferredInstallPrompt) {
+            deferredInstallPrompt.prompt();
+            try {
+                let choice = await deferredInstallPrompt.userChoice;
+                if (choice && choice.outcome === 'accepted') hideInstallBanner();
+            } catch (e) {}
+            deferredInstallPrompt = null;
+        } else if (isIOS) {
+            installIosHelp.textContent = INSTALL_IOS_HELP;
+            installIosHelp.style.display = installIosHelp.style.display === 'none' ? 'block' : 'none';
+        }
+    }
+
+    // iPhone : pas de bouton d'installation possible, on affiche le message avec la marche à suivre
+    if (isIOS && !isStandalone) {
+        installBtn.textContent = "Comment faire ?";
+        showInstallBanner();
+    }
+
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+            navigator.serviceWorker.register('sw.js').catch(function () {});
+        });
+    }
+
+    function hashCode(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            let char = str.charCodeAt(i);
+            hash = (hash << 5) - hash + char;
+            hash |= 0;
+        }
+        return hash;
+    }
+</script>
+
+</body>
+</html>
